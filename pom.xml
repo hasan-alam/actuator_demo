@@ -28,12 +28,26 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<!--For Spring Boot Admin-->
+		<spring-boot-admin.version>3.0.4</spring-boot-admin.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<!--For Spring Boot Admin-->
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>${spring-boot-admin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-micrometer</artifactId>
+			<version>6.1.6.Final</version>
+		</dependency>
+		<!--For Spring Boot Admin-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -45,7 +59,19 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+	<!--For Spring Boot Admin-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!--For Spring Boot Admin-->
 	<build>
 		<plugins>
 			<plugin>
